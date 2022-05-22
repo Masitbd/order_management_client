@@ -1,5 +1,6 @@
 import React from "react";
 import Items from "../Product/Items";
+import CurrentStatus from "./CurrentStatus";
 import Info from "./Info";
 import Slider from "./Slider";
 
@@ -9,6 +10,7 @@ const Home = () => {
       <Slider />
       <Items />
       <Info />
+      <CurrentStatus />
     </div>
   );
 };
