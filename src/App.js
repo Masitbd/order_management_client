@@ -9,7 +9,7 @@ import Footer from "./pages/Shared/Footer";
 
 function App() {
   return (
-    <div className="">
+    <div className="max-w-7xl mx-auto">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
