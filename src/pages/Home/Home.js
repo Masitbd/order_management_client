@@ -1,5 +1,6 @@
 import React from "react";
 import Items from "../Product/Items";
+import Info from "./Info";
 import Slider from "./Slider";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Slider />
       <Items />
+      <Info />
     </div>
   );
 };
