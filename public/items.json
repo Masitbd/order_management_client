@@ -1,0 +1,67 @@
+[{
+    "id": 1,
+    "name": "Emergency",
+    "description": "This is description",
+    "img": "https://image.freepik.com/free-photo/spinal-surgery-group-surgeons-operating-room-with-surgery-equipment_179755-1741.jpg",
+    "qty": "200",
+    "Price": "5000",
+    "available": "500"
+  },
+  {
+    "id": 2,
+    "name": "Blood bank",
+   "description": "This is description",
+    "img": "https://image.freepik.com/free-vector/red-donor-day-concept-background_1017-19050.jpg",
+    "qty": "200",
+    "Price": "4000",
+    "available": "500"
+  },
+  {
+    "id": 3,
+    "name": "Diabetes center",
+    "description": "This is description",
+    "img": "https://image.freepik.com/free-vector/hand-drawn-flat-world-diabetes-day-background_23-2149115040.jpg",
+    "qty": "200",
+    "Price": "3000",
+    "available": "500"
+  },
+  {
+    "id": 4,
+    "name": "Sample collection",
+   "description": "This is description",
+    "img": "https://image.freepik.com/free-photo/middle-age-scientists-researchers-work-chemical-laboratory_473712-1632.jpg",
+    "qty": "200",
+    "Price": "1500",
+    "available": "500"
+  },
+  {
+    "id": 5,
+    "name": "Pharmacy",
+   "description": "This is description",
+    "img": "https://image.freepik.com/free-photo/closeup-view-pharmacist-hand-taking-medicine-box-from-shelf-drug-store_342744-320.jpg",
+    "qty": "200",
+    "Price": "15000",
+    "available": "500"
+  },
+  {
+    "id": 6,
+    "name": "Prayer room",
+   "description": "This is description",
+    "img": "https://image.freepik.com/free-vector/young-man-pray-ramadan-day_187851-372.jpg",
+    "qty": "200",
+    "Price": "200",
+    "available": "500"
+  },
+  {
+    "id": 7,
+    "name": "Vaccination",
+   "description": "This is description",
+    "img": "https://image.freepik.com/free-photo/young-asian-lady-nurse-giving-covid-19-flu-antivirus-vaccine-shot-senior-male-patient_7861-2845.jpg",
+    "qty": "200",
+    "Price": "100",
+    "available": "500"
+  }
+  
+  ]
+ 
+  
