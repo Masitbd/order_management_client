@@ -1,6 +1,6 @@
 import React from "react";
 
-const Item = ({ item }) => {
+const Item = ({ item, setModalItem }) => {
   const { id, name, description, img, qty, Price, available } = item;
 
   return (
@@ -13,7 +13,19 @@ const Item = ({ item }) => {
           <h2 className="card-title">{name}</h2>
           <p>{description}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+            {/*  <button
+              onClick={() => setModalItem(item)}
+              className="btn btn-primary"
+            >
+              Buy Now
+            </button> */}
+            <label
+              for="item-modal"
+              onClick={() => setModalItem(item)}
+              className="btn btn-primary"
+            >
+              Buy Now
+            </label>
           </div>
         </div>
       </div>
