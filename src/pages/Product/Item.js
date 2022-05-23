@@ -22,7 +22,7 @@ const Item = ({ item, setModalItem }) => {
             <label
               htmlFor="item-modal"
               onClick={() => setModalItem(item)}
-              className="btn btn-primary"
+              className="btn btn-sm btn-primary"
             >
               Buy Now
             </label>
