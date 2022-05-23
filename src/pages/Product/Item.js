@@ -20,7 +20,7 @@ const Item = ({ item, setModalItem }) => {
               Buy Now
             </button> */}
             <label
-              for="item-modal"
+              htmlFor="item-modal"
               onClick={() => setModalItem(item)}
               className="btn btn-primary"
             >
