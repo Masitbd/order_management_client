@@ -10,7 +10,8 @@ const Items = () => {
     error,
     data: items,
   } = useQuery("itemsData", () =>
-    fetch("./items.json").then((res) => res.json())
+    //fetch("./items.json").then((res) => res.json())
+    fetch("http://localhost:5001/item").then((res) => res.json())
   );
 
   if (isLoading) return "Loading...";
