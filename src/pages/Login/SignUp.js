@@ -3,12 +3,12 @@ import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
-import Loading from "../Shared/Loading";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
-const Login = () => {
+const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -37,12 +37,36 @@ const Login = () => {
     signInWithEmailAndPassword(data.email, data.password);
     console.log(data.email);
   };
+
   return (
     <div className="flex h-[80vh] justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-center text-2xl font-bold">Login</h2>
+          <h2 className="text-center text-2xl font-bold">Register new user</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <div class="form-control w-full max-w-xs">
+              <label class="label">
+                <span class="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your name"
+                class="input input-bordered w-full max-w-xs input-accent"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name is Required",
+                  },
+                })}
+              />
+              <label class="label">
+                {errors.name?.type === "required" && (
+                  <span class="label-text-alt text-red-500">
+                    {errors.name.message}
+                  </span>
+                )}
+              </label>
+            </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
                 <span class="label-text">Email</span>
@@ -117,9 +141,9 @@ const Login = () => {
             />
           </form>
           <p>
-            New to Electrix
-            <Link to="/signUp">
-              <span className="text-blue-500 ml-3">Register New User</span>
+            Already have an account
+            <Link to="/login">
+              <span className="text-blue-500 ml-3">Please login</span>
             </Link>
           </p>
           <div className="divider">OR</div>
@@ -135,4 +159,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
