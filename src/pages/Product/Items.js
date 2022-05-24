@@ -11,7 +11,7 @@ const Items = () => {
     data: items,
   } = useQuery("itemsData", () =>
     //fetch("./items.json").then((res) => res.json())
-    fetch("http://localhost:5001/item").then((res) => res.json())
+    fetch("http://localhost:5000/item").then((res) => res.json())
   );
 
   if (isLoading) return "Loading...";

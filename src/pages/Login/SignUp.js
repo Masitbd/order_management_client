@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
@@ -10,8 +10,8 @@ import Loading from "../Shared/Loading";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
   const {
     register,
@@ -34,7 +34,7 @@ const SignUp = () => {
     console.log(user || gUser);
   }
   const onSubmit = (data) => {
-    signInWithEmailAndPassword(data.email, data.password);
+    createUserWithEmailAndPassword(data.email, data.password);
     console.log(data.email);
   };
 
