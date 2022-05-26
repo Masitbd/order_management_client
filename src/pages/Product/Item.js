@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import ItemInfo from "./ItemInfo";
 
 const Item = ({ item, setModalItem }) => {
-  const { id, name, description, img, qty, Price, available } = item;
+  const { _id, name, description, img, qty, Price, available } = item;
 
   return (
     <div className="">
@@ -13,19 +15,21 @@ const Item = ({ item, setModalItem }) => {
           <h2 className="card-title">{name}</h2>
           <p>{description}</p>
           <div className="card-actions">
-            {/*  <button
-              onClick={() => setModalItem(item)}
-              className="btn btn-primary"
-            >
-              Buy Now
-            </button> */}
-            <label
+            <Link to={`/itemInfo/${_id}`}>
+              <button
+                /* onClick={() => setModalItem(item)} */
+                className="btn btn-secondary btn-small"
+              >
+                More
+              </button>
+            </Link>
+            {/*  <label
               htmlFor="item-modal"
               onClick={() => setModalItem(item)}
               className="btn btn-sm btn-primary"
             >
               Buy Now
-            </label>
+            </label> */}
           </div>
         </div>
       </div>

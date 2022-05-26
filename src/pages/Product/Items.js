@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import RequireAuth from "../Login/RequireAuth";
 import Item from "./Item";
+import ItemInfo from "./ItemInfo";
 import ItemModal from "./ItemModal";
 
 const Items = () => {
@@ -27,6 +29,7 @@ const Items = () => {
           <Item key={item.id} item={item} setModalItem={setModalItem} />
         ))}
       </div>
+
       {modalItem && <ItemModal modalItem={modalItem} />}
     </div>
   );

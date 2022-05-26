@@ -7,6 +7,9 @@ import Tools from "./pages/Home/Tools";
 import Login from "./pages/Login/Login";
 import Footer from "./pages/Shared/Footer";
 import SignUp from "./pages/Login/SignUp";
+import ItemModal from "./pages/Product/ItemModal";
+import ItemInfo from "./pages/Product/ItemInfo";
+import RequireAuth from "./pages/Login/RequireAuth";
 
 function App() {
   return (
@@ -17,6 +20,14 @@ function App() {
         <Route path="tools" element={<Tools />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route
+          path="/itemInfo/:id"
+          element={
+            <RequireAuth>
+              <ItemInfo />
+            </RequireAuth>
+          }
+        />
       </Routes>
       {/*  <Footer /> */}
     </div>

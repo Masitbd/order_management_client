@@ -1,7 +1,7 @@
 import React from "react";
 
 const ItemModal = ({ modalItem }) => {
-  const { name, description, img, qty } = modalItem;
+  const { name, description, img, qty, price, available } = modalItem;
   return (
     <div>
       <input type="checkbox" id="item-modal" className="modal-toggle" />
