@@ -21,7 +21,7 @@ const ItemInfo = () => {
     fetch(`http://localhost:5000/item/${id}`)
       .then((response) => response.json())
       .then((data) => setItemInfo(data));
-  }, [id]);
+  }, []);
 
   if (loading) {
     return (
@@ -42,6 +42,20 @@ const ItemInfo = () => {
   }; */
 
   const onSubmit = (data) => {
+    const uri = `http://localhost:5000/item`;
+
+    fetch(uri, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+
     console.log(data);
   };
   return (
@@ -86,8 +100,9 @@ const ItemInfo = () => {
               />
               <input
                 type="text"
+                ref={itemInfo}
                 placeholder="Enter your name"
-                value={itemInfo.name}
+                //value={itemInfo.name}
                 class="input input-bordered w-full max-w-xs input-accent"
                 {...register("name", {
                   required: {
@@ -95,6 +110,7 @@ const ItemInfo = () => {
                     message: "Name is Required",
                   },
                 })}
+                defaultValue={itemInfo.name}
               />
 
               <input
@@ -102,32 +118,43 @@ const ItemInfo = () => {
                 placeholder="Description"
                 value={itemInfo.description}
                 class="input input-bordered w-full max-w-xs input-accent"
-                {...register("description", {
-                  required: {
-                    value: true,
-                    message: "Name is Required",
-                  },
-                })}
+                {...register("description")}
               />
 
-              <input
-                type="number"
-                placeholder="Enter qty"
-                class="input input-bordered w-full max-w-xs input-accent"
-                {...register("qty", {
-                  required: {
-                    value: true,
-                    message: "Name is Required",
-                  },
-                })}
-              />
+              <div class="form-control w-full max-w-xs">
+                <input
+                  type="number"
+                  placeholder="Enter qty"
+                  class="input input-bordered w-full max-w-xs input-accent"
+                  {...register("qty", {
+                    required: {
+                      value: true,
+                      message: "Name is Required",
+                    },
+                    min: {
+                      value: 99,
+                      message: "Minimum order qty over 99",
+                    },
+                    max: {
+                      value: 599,
+                      message: "Maximum order qty less 500",
+                    },
+                  })}
+                />
+                <label class="label">
+                  {errors.qty?.type === "min" && (
+                    <span class="label-text-alt text-red-500">
+                      {errors.qty.message}
+                    </span>
+                  )}
+                  {errors.qty?.type === "max" && (
+                    <span class="label-text-alt text-red-500">
+                      {errors.qty.message}
+                    </span>
+                  )}
+                </label>
+              </div>
 
-              <input
-                type="text"
-                name="orderqty"
-                placeholder="your order qty"
-                class="input input-bordered w-full max-w-xs"
-              />
               <input
                 className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2"
                 type="submit"
