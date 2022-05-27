@@ -15,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrder from "./pages/Dashboard/MyOrder";
 import MyReview from "./pages/Dashboard/MyReview";
+import Users from "./pages/Dashboard/Users";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         >
           <Route index element={<MyOrder />} />
           <Route path="review" element={<MyReview />} />
+          <Route path="users" element={<Users />} />
         </Route>
       </Routes>
       {/*  <Footer /> */}
