@@ -1,7 +1,9 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const MyReview = () => {
@@ -19,6 +21,7 @@ const MyReview = () => {
     //fetch("https://electrix-server.herokuapp.com/item").then((res) =>
     fetch("http://localhost:5000/item").then((res) => res.json())
   );
+  const [user] = useAuthState(auth);
 
   if (isLoading) return <Loading />;
 
@@ -44,6 +47,23 @@ const MyReview = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full max-w-xs mt-8">
+          <input
+            type="email"
+            value={user.email}
+            placeholder="Enter your email"
+            class="input input-bordered w-full max-w-xs input-accent"
+            {...register("email", {
+              required: {
+                value: true,
+                message: "Email is Required",
+              },
+
+              pattern: {
+                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                message: "Provide a valid Email",
+              },
+            })}
+          />
           <label className="text-orange-500">Select item</label>
           <select className="h-8" {...register("product")}>
             {items.map((item) => (
