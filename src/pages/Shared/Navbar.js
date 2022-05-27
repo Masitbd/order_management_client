@@ -19,6 +19,7 @@ const Navbar = () => {
         <Link to="/tools">Tools</Link>
       </li>
       <li>
+        {user && <Link to="dashboard">Dashboard</Link>}
         {user ? (
           <button onClick={logout} className="btn btn-ghost">
             Sign Out

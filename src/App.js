@@ -10,6 +10,11 @@ import SignUp from "./pages/Login/SignUp";
 import ItemModal from "./pages/Product/ItemModal";
 import ItemInfo from "./pages/Product/ItemInfo";
 import RequireAuth from "./pages/Login/RequireAuth";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import MyOrder from "./pages/Dashboard/MyOrder";
+import MyReview from "./pages/Dashboard/MyReview";
 
 function App() {
   return (
@@ -28,8 +33,20 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<MyOrder />} />
+          <Route path="review" element={<MyReview />} />
+        </Route>
       </Routes>
       {/*  <Footer /> */}
+      <ToastContainer />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const ItemInfo = () => {
@@ -19,6 +20,7 @@ const ItemInfo = () => {
 
   useEffect(() => {
     fetch(`http://localhost:5000/item/${id}`)
+      // fetch(`https://electrix-server.herokuapp.com/item/${id}`)
       .then((response) => response.json())
       .then((data) => setItemInfo(data));
   }, []);
@@ -54,6 +56,11 @@ const ItemInfo = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        if (result.success) {
+          toast("Item added successfully");
+        } else {
+          toast.error("Item already exists");
+        }
       });
 
     console.log(data);

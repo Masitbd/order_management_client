@@ -18,7 +18,7 @@ const Item = ({ item, setModalItem }) => {
             <Link to={`/itemInfo/${_id}`}>
               <button
                 /* onClick={() => setModalItem(item)} */
-                className="btn btn-secondary btn-small"
+                className="btn btn-secondary btn-sm"
               >
                 More
               </button>

@@ -12,7 +12,7 @@ const Items = () => {
     error,
     data: items,
   } = useQuery("itemsData", () =>
-    //fetch("./items.json").then((res) => res.json())
+    //fetch("https://electrix-server.herokuapp.com/item").then((res) =>
     fetch("http://localhost:5000/item").then((res) => res.json())
   );
 
@@ -29,7 +29,6 @@ const Items = () => {
           <Item key={item.id} item={item} setModalItem={setModalItem} />
         ))}
       </div>
-
       {modalItem && <ItemModal modalItem={modalItem} />}
     </div>
   );
