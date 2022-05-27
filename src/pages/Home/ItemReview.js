@@ -1,7 +1,7 @@
 import React from "react";
 
-const Tools = () => {
+const ItemReview = () => {
   return <div></div>;
 };
 
-export default Tools;
+export default ItemReview;
