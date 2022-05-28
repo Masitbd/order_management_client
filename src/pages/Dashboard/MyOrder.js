@@ -9,7 +9,8 @@ const MyOrder = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/myOrder?email=${user.email}`)
+      //fetch(`http://localhost:5000/myOrder?email=${user.email}`)
+      fetch(`https://electrix-server.herokuapp.com/myOrder?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }

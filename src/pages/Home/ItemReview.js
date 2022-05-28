@@ -9,7 +9,8 @@ const ItemReview = () => {
   const [reviews, setreviews] = useState([]);
   const [user, loading] = useAuthState(auth);
   useEffect(() => {
-    fetch(`http://localhost:5000/review`)
+    //fetch(`http://localhost:5000/review`)
+    fetch(`https://electrix-server.herokuapp.com/review`)
       .then((res) => res.json())
       .then((data) => setreviews(data));
   }, []);

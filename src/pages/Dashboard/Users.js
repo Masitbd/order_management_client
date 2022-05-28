@@ -10,13 +10,17 @@ const Users = () => {
     data: users,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/user").then((res) => res.json())
+    //fetch("http://localhost:5000/user").then((res) => res.json())
+    fetch("https://electrix-server.herokuapp.com/user").then((res) =>
+      res.json()
+    )
   );
   if (isLoading) return <Loading />;
   if (error) return "An error has occurred: " + error.message;
 
   const makeAdmin = (user) => {
-    fetch(`http://localhost:5000/user/admin/${user}`, {
+    //fetch(`http://localhost:5000/user/admin/${user}`, {
+    fetch(`https://electrix-server.herokuapp.com/user/admin/${user}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

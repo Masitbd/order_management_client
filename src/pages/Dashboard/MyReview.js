@@ -18,8 +18,10 @@ const MyReview = () => {
     error,
     data: items,
   } = useQuery("itemsData", () =>
-    //fetch("https://electrix-server.herokuapp.com/item").then((res) =>
-    fetch("http://localhost:5000/item").then((res) => res.json())
+    // fetch("http://localhost:5000/item").then((res) => res.json())
+    fetch("https://electrix-server.herokuapp.com/item").then((res) =>
+      res.json()
+    )
   );
   const [user] = useAuthState(auth);
 
@@ -27,8 +29,8 @@ const MyReview = () => {
 
   if (error) return "An error has occurred: " + error.message;
   const onSubmit = (data) => {
-    const uri = `http://localhost:5000/review`;
-    //const uri = `https://limitless-caverns-64590.herokuapp.com/item`;
+    const uri = `https://electrix-server.herokuapp.com/review`;
+    // const uri = `http://localhost:5000/review`;
     fetch(uri, {
       method: "POST",
       headers: {

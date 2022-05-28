@@ -12,8 +12,10 @@ const Items = () => {
     error,
     data: items,
   } = useQuery("itemsData", () =>
-    //fetch("https://electrix-server.herokuapp.com/item").then((res) =>
-    fetch("http://localhost:5000/item").then((res) => res.json())
+    // fetch("http://localhost:5000/item").then((res) => res.json())
+    fetch("https://electrix-server.herokuapp.com/item").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) return "Loading...";
