@@ -12,6 +12,7 @@ const ItemInfo = () => {
   const navigate = useNavigate();
   const {
     register,
+    reset,
     formState: { errors },
     handleSubmit,
   } = useForm();
@@ -64,26 +65,40 @@ const ItemInfo = () => {
       });
 
     console.log(data);
+    reset();
   };
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-2">
       <div className="mx-16">
         <div class="card w-full bg-base-100 shadow-xl">
           <div class="card-body">
-            <h2 class="card-title">Item information</h2>
+            <h2 className="card-title text-green-500 font-bold">
+              Item information
+            </h2>
             <img src={itemInfo.img} className="w-40 h-40" alt="" />
-            <p>{itemInfo.name}</p>
-            <p>{itemInfo.description}</p>
-            <p>{itemInfo.qty}</p>
-            <p>{itemInfo.price}</p>
-            <p>{itemInfo.available}</p>
+            <p>
+              <span className="font-bold text-orange-500">Item Name:</span>
+              {itemInfo.name}
+            </p>
+            <p>
+              <span className="font-bold text-orange-500">Description:</span>{" "}
+              {itemInfo.description}
+            </p>
+            <p>
+              <span className="font-bold text-orange-500">Min order qty:</span>{" "}
+              {itemInfo.qty}
+            </p>
+            <p>
+              <span className="font-bold text-orange-500">Max order qty:</span>
+              {itemInfo.available}
+            </p>
           </div>
         </div>
       </div>
       <div>
         <div class="card w-full bg-base-100 shadow-xl">
           <div class="card-body">
-            <h2 class="card-title">Card title!</h2>
+            <h2 class="card-title w-50 mx-auto text-orange-500">Place Order</h2>
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="grid grid-cols-1 gap-4 justify-items-center "
@@ -139,11 +154,11 @@ const ItemInfo = () => {
                       message: "Name is Required",
                     },
                     min: {
-                      value: 99,
+                      value: 200,
                       message: "Minimum order qty over 99",
                     },
                     max: {
-                      value: 599,
+                      value: 500,
                       message: "Maximum order qty less 500",
                     },
                   })}

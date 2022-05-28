@@ -17,6 +17,7 @@ import MyOrder from "./pages/Dashboard/MyOrder";
 import MyReview from "./pages/Dashboard/MyReview";
 import Users from "./pages/Dashboard/Users";
 import ItemReview from "./pages/Home/ItemReview";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="review" element={<MyReview />} />
           <Route path="users" element={<Users />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {/*  <Footer /> */}
       <ToastContainer />

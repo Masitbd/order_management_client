@@ -1,5 +1,6 @@
 import React from "react";
 import Items from "../Product/Items";
+import Footer from "../Shared/Footer";
 import CurrentStatus from "./CurrentStatus";
 import Info from "./Info";
 import Slider from "./Slider";
@@ -11,6 +12,7 @@ const Home = () => {
       <Items />
       <Info />
       <CurrentStatus />
+      <Footer />
     </div>
   );
 };
